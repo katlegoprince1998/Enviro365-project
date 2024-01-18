@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 
 import java.util.List;
@@ -20,5 +21,7 @@ public class ProductDto {
     private double currentBalance;
     private ProductType type;
     private Investor investor;
-    private List<WithdrawalNotice> withdrawalNotices;
+
+    public ProductDto(String name, ProductType type, double currentBalance) {
+    }
 }

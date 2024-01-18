@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,7 @@ public class Investor {
     private String lastname;
     private String email;
     private String phone;
+    private Date dateOfBirth;
     @Embedded
     private Address address;
 
