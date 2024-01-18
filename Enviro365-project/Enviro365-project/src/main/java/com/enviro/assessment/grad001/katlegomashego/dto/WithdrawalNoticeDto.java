@@ -1,37 +1,24 @@
-package com.enviro.assessment.grad001.katlegomashego.entity;
+package com.enviro.assessment.grad001.katlegomashego.dto;
 
+import com.enviro.assessment.grad001.katlegomashego.entity.Investor;
+import com.enviro.assessment.grad001.katlegomashego.entity.Product;
 import com.enviro.assessment.grad001.katlegomashego.entity.bankingDetails.BankingDetails;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-
-public class WithdrawalNotice {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class WithdrawalNoticeDto {
     private Long id;
     private double amount;
     private Date date;
-
-    @Enumerated
     private BankingDetails bankingDetails;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "investor_id")
     private Investor investor;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
     private Product product;
-
 }
