@@ -22,6 +22,5 @@ public class InvestorDto {
     private String email;
     private String phone;
     private Address address;
-    private List<Product> products;
-    private List<WithdrawalNotice> withdrawalNotices;
+
 }

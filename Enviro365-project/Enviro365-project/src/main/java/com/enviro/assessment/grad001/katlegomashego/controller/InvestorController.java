@@ -5,9 +5,7 @@ import com.enviro.assessment.grad001.katlegomashego.service.investor.InvestorSer
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/api/v1/investor")
@@ -19,5 +17,9 @@ public class InvestorController {
     public ResponseEntity<InvestorDto> createInvestor(@RequestBody InvestorDto investorDto){
        investorService.createInvestor(investorDto);
        return ResponseEntity.ok(investorDto);
+    }
+    @GetMapping("/get/{id}")
+    public ResponseEntity<InvestorDto> getInvestorById(@PathVariable Long id){
+        return ResponseEntity.ok(investorService.getInvestorById(id));
     }
 }
