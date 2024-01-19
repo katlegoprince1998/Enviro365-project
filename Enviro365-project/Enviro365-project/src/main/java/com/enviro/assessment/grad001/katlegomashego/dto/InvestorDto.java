@@ -22,7 +22,7 @@ public class InvestorDto {
     private String lastname;
     private String email;
     private String phone;
-    private Date dateOfBirth;
+    private int yearBorn;
     private Address address;
 
 }

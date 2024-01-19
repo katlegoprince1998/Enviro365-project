@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -20,9 +21,9 @@ public class WithdrawalNotice {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private double amount;
-    private Date date;
+    private LocalDate date;
 
-    @Enumerated
+    @Embedded
     private BankingDetails bankingDetails;
 
 

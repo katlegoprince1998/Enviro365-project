@@ -47,13 +47,15 @@ public class ProductServiceImplementation implements ProductService{
     @Override
     public List<ProductDto> getAllProducts(Long investorId) {
         List<Product> products = productRepository.findByInvestorId(investorId);
+        List<ProductDto> productDtos = new ArrayList<>();
 
-        // Using Java streams to map Product entities to ProductDto objects
-        List<ProductDto> productDtos = products.stream()
-                .map(this::convertToProductDto)
-                .collect(Collectors.toList());
-
+        for (Product product: products){
+            ProductDto productDto = new ProductDto();
+            BeanUtils.copyProperties(product, productDto);
+            productDtos.add(productDto);
+        }
         return productDtos;
+
     }
 
 

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,6 +18,6 @@ public class BankingDetails {
     private String bankName;
     private String bankType;
     private String cvv;
-    private String expiryDate;
+    private LocalDate expiryDate;
 
 }
